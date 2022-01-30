@@ -12,4 +12,11 @@ class ElasticProductSerializer(DocumentSerializer):
     class Meta:
         model = Product
         document = ProductDocument
-        fields = '__all__'
+        fields = ['id', 'name', 'price', 'quantity', 'created', 'modified']
+
+        def get_location(self, obj):
+            """Represent location value."""
+            try:
+                return obj.location.to_dict()
+            except:
+                return {}
