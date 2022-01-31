@@ -1,5 +1,6 @@
 from django.db import models
 
+# PRODUCT MODULE
 class Product(models.Model):
     name = models.CharField(max_length=250)
     price = models.FloatField(default=0.0)
